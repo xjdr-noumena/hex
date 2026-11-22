@@ -30,6 +30,8 @@ have detailed maps.
 automation (strobe's benches) read from the window, the HUD, and the capsules.
 Agents can [read retained transcripts](transcript-cli.md) and
 [control the running app](control-cli.md) with the release CLI.
+Developers can [place a WebRTC call to an OSS Live endpoint](../../crates/voice/README.md)
+with the standalone voice client and send delegated requests to an OpenCode session.
 [Labs](labs.md) gives every unfinished feature its own switch, off by
 default, listed under collapsible groups (Dictation, Output, History,
 Meetings, Annotate, Shortcuts, Models) with only this OS's labs.

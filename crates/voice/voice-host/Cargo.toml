@@ -1,0 +1,39 @@
+# Derived from openai/codex 943a21829d (codex-rs/voice-host), Apache-2.0.
+# Hex changes: explicit versions; the binary is hex-voice-host; playback decodes Opus
+# in-process (playout.rs) instead of through a bundled GStreamer runtime, so gstreamer*,
+# libloading and the private runtime bootstrap are gone.
+[package]
+name = "codex-voice-host"
+version = "0.0.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[[bin]]
+name = "hex-voice-host"
+path = "src/main.rs"
+
+[lints]
+workspace = true
+
+[dependencies]
+codex-process-hardening = { path = "../process-hardening" }
+codex-realtime-webrtc = { path = "../realtime-webrtc" }
+futures = { version = "0.3.34", default-features = false, features = ["std"] }
+rand = "0.9.3"
+rtc = "=0.20.3"
+tokio = { version = "1.52.3", features = ["rt-multi-thread", "sync", "time"] }
+webrtc = "=0.20.3"
+
+[target.'cfg(any(target_os = "macos", all(target_os = "linux", target_env = "gnu"), all(windows, target_env = "msvc")))'.dependencies]
+cpal = "=0.18.2"
+crossbeam-queue = "0.3.12"
+opus = "=0.4.0"
+rubato = { version = "5.0.1", default-features = false } # Codex pins =5.0.0; Hex already uses 5.0.1
+sonora = { version = "=0.2.0", default-features = false }
+
+[dev-dependencies]
+anyhow = "1.0.103"
+pretty_assertions = "1.4.1"
+tempfile = "3.23"
+tokio = { version = "1.52.3", features = ["io-util", "macros", "process", "rt-multi-thread", "time"] }

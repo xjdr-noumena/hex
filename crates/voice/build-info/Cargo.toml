@@ -1,0 +1,14 @@
+# Shim for openai/codex's codex-build-info: only the build commit, which the voice client and
+# its helper must agree on.
+[package]
+name = "codex-build-info"
+version = "0.0.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+doctest = false
+
+[lints]
+workspace = true

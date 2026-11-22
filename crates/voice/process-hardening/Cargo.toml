@@ -1,0 +1,22 @@
+# Verbatim from openai/codex 943a21829d (codex-rs/process-hardening), Apache-2.0.
+# Hex change: explicit versions instead of Codex's workspace inheritance.
+[package]
+name = "codex-process-hardening"
+version = "0.0.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+name = "codex_process_hardening"
+path = "src/lib.rs"
+doctest = false
+
+[lints]
+workspace = true
+
+[dependencies]
+libc = "0.2.182"
+
+[dev-dependencies]
+pretty_assertions = "1.4.1"

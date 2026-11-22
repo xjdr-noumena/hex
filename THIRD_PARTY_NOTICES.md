@@ -4,6 +4,13 @@ Hex's own source is covered by the root `LICENSE`. The following notices cover
 vendored icon assets and the speech models Hex downloads under their own
 licences. Dependencies retain their respective upstream licenses.
 
+## Codex voice client
+
+The WebRTC helper, realtime signaling client and supporting crates under
+`crates/voice/` adapt code from [OpenAI Codex at 943a218](https://github.com/openai/codex/tree/943a21829d0bc3462a725f9fb3cb704c21b64b91).
+The [Apache 2.0 license](crates/voice/LICENSE) and [upstream notice](crates/voice/NOTICE)
+accompany the adapted code. Hex's call orchestration crate uses the root MIT license.
+
 ## Parakeet Ultra
 
 Parakeet Ultra by Moondream, based on NVIDIA Parakeet TDT 0.6B v3. GGUF

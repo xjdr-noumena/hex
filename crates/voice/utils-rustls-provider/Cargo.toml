@@ -1,0 +1,17 @@
+# Derived from openai/codex 943a21829d (codex-rs/utils/rustls-provider), Apache-2.0.
+# Hex changes: explicit versions; src/lib.rs is unchanged.
+[package]
+name = "codex-utils-rustls-provider"
+version = "0.0.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+doctest = false
+
+[lints]
+workspace = true
+
+[dependencies]
+rustls = { version = "0.23.46", default-features = false, features = ["aws_lc_rs", "std"] }
