@@ -1,0 +1,20 @@
+# Shim for openai/codex's codex-utils-pty: only the pipe spawner the voice client uses.
+[package]
+name = "codex-utils-pty"
+version = "0.0.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+doctest = false
+
+[lints]
+workspace = true
+
+[dependencies]
+anyhow = "1.0.103"
+tokio = { version = "1.52.3", features = ["io-util", "process", "rt", "sync", "macros"] }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2.182"

@@ -1,0 +1,30 @@
+# Hex's voice call: Codex's GPT-Live client flow (realtime-webrtc + realtime-api) with delegations
+# answered by an OpenCode session. `hex-voice-call` runs one call from the command line.
+[package]
+name = "hex-voice"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+publish = false
+
+[[bin]]
+name = "hex-voice-call"
+path = "src/main.rs"
+
+[lints]
+workspace = true
+
+[dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.6.7", features = ["derive", "env"] }
+codex-http-client = { path = "../http-client" }
+codex-protocol = { path = "../protocol" }
+codex-realtime-api = { path = "../realtime-api" }
+codex-realtime-webrtc = { path = "../realtime-webrtc" }
+futures = "0.3.34"
+http = "1.4.0"
+scrawl-router = { path = "../../router" }
+serde_json = "1.0.151"
+tokio = { version = "1.52.3", features = ["macros", "rt-multi-thread", "signal", "sync", "time"] }
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }

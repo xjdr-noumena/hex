@@ -1,0 +1,24 @@
+# Shim for openai/codex's codex-websocket-client (943a21829d, codex-rs/websocket-client),
+# Apache-2.0: WebSocketConnector/WebSocketConnection over upstream tokio-tungstenite 0.28 with
+# rustls and the platform's trusted roots (Codex patches tokio-tungstenite and tungstenite to
+# OpenAI forks). Connections are direct: no proxy routing, network policy, or ChatGPT cookies.
+[package]
+name = "codex-websocket-client"
+version = "0.0.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+doctest = false
+test = false
+
+[lints]
+workspace = true
+
+[dependencies]
+codex-http-client = { path = "../http-client" }
+futures = { version = "0.3.34", default-features = false, features = ["std"] }
+rustls = { version = "0.23.46", default-features = false, features = ["aws_lc_rs", "std"] }
+tokio = { version = "1.54.1", features = ["net"] }
+tokio-tungstenite = { version = "0.28.0", features = ["rustls-tls-native-roots"] }

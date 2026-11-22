@@ -1,0 +1,32 @@
+# Derived from openai/codex 943a21829d (codex-rs/realtime-webrtc), Apache-2.0.
+# Hex changes: explicit versions; the helper is found beside the running executable
+# (locate.rs) instead of inside a Codex package, so codex-install-context is gone.
+[package]
+name = "codex-realtime-webrtc"
+version = "0.0.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+doctest = false
+
+[lints]
+workspace = true
+
+[dependencies]
+codex-build-info = { path = "../build-info" }
+anyhow = "1.0.103"
+codex-utils-pty = { path = "../utils-pty" }
+futures = { version = "0.3.34", features = ["std"] }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+tokio = { version = "1.52.3", features = ["macros", "rt-multi-thread", "sync", "time"] }
+tracing = "0.1.44"
+
+[dev-dependencies]
+ctor = "0.6.3"
+pretty_assertions = "1.4.1"
+
+[target.'cfg(unix)'.dev-dependencies]
+libc = "0.2.182"

@@ -1,0 +1,24 @@
+# Derived from openai/codex 943a21829d (codex-rs/codex-client), Apache-2.0.
+# Hex changes: explicit versions; no SSE helper; the retry policy has no network-policy arm
+# (the codex-http-client shim has no TransportError::Policy).
+[package]
+name = "codex-client"
+version = "0.0.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+doctest = false
+test = false
+
+[lints]
+workspace = true
+
+[dependencies]
+codex-http-client = { path = "../http-client" }
+http = "1.5.0"
+rand = "0.9.4"
+tokio = { version = "1.54.1", features = ["macros", "rt", "time", "sync"] }
+tracing = "0.1.44"
+url = "2.5.8"

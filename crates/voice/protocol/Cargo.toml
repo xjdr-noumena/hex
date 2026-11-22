@@ -1,0 +1,20 @@
+# Shim for openai/codex's codex-protocol (943a21829d, codex-rs/protocol), Apache-2.0: only the
+# realtime data types the realtime API client uses, without the JsonSchema and TS derives.
+[package]
+name = "codex-protocol"
+version = "0.0.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+doctest = false
+test = false
+
+[lints]
+workspace = true
+
+[dependencies]
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+tokio = { version = "1.54.1", features = ["sync"] }
